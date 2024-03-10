@@ -26,3 +26,15 @@
 <p align="center">
   Get started and strengthen your security assessments today! 💻🔍
 </p>
+
+<h2 align="center">Installation</h2>
+
+### Requirements
+- Python 3.x
+- pip package manager
+
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Vatsal-Shashwat/SubHound
+   bash install.sh
