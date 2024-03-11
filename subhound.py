@@ -1,6 +1,35 @@
 import sys
 import argparse
 import dns.resolver
+import sys
+import os
+from colorama import Fore, Back, Style
+
+os.system("clear")
+
+# colors
+red = Fore.RED
+green = Fore.GREEN
+yellow = Fore.YELLOW
+blue = Fore.BLUE
+magenta = Fore.MAGENTA
+cyan = Fore.CYAN
+white = Fore.WHITE
+
+banner = f'''
+   ███████╗██╗   ██╗██████╗ ██╗  ██╗ ██████╗ ██╗   ██╗███╗   ██╗██████╗ 
+   ██╔════╝██║   ██║██╔══██╗██║  ██║██╔═══██╗██║   ██║████╗  ██║██╔══██╗
+   ███████╗██║   ██║██████╔╝███████║██║   ██║██║   ██║██╔██╗ ██║██║  ██║
+   ╚════██║██║   ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║██║  ██║
+   ███████║╚██████╔╝██████╔╝██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝   
+   ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝     
+            
+        {blue}    SubHound: Your Subdomain Enumeration Companion 
+                    GitHub: @Vatsal-Shashwat                                                                    
+'''
+
+print(green + banner)
+print(white + "")
 
 def find_subdomains(domain, wordlist_file):
     try:
@@ -15,14 +44,14 @@ def find_subdomains(domain, wordlist_file):
                 answers = dns.resolver.resolve(subdomain, 'A')
                 for answer in answers:
                     subdomains.add(subdomain)
-                    print(f"Found subdomain: {subdomain}")
+                    print(f"{cyan}[+] Found subdomain: {subdomain}")
             except dns.resolver.NXDOMAIN:
                 pass
 
         return subdomains
 
     except Exception as e:
-        print(f"Error finding subdomains: {e}")
+        print(f"{red}\n[-] Error finding subdomains: \n\t{e}")
         return set()
 
 def main():
